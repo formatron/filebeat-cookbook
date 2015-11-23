@@ -241,19 +241,16 @@ output:
     # top topbeat and for Filebeat to filebeat.
     #index: filebeat
 
-    <% unless @certificate.nil? %>
     # Optional TLS. By default is off.
-    tls:
+    #tls:
       # List of root certificates for HTTPS server verifications
-      certificate_authorities: ["<%= @certificate %>"]
+      #certificate_authorities: ["/etc/pki/root/ca.pem"]
 
-      <% unless @private_key.nil? %>
       # Certificate for TLS client authentication
-      certificate: "<%= @certificate %>"
+      #certificate: "/etc/pki/client/cert.pem"
 
       # Client Certificate Key
-      certificate_key: "<%= @private_key %>"
-      <% end %>
+      #certificate_key: "/etc/pki/client/cert.key"
 
       # Controls whether the client verifies server certificates and host name.
       # If insecure is set to true, all server host names and certificates will be
@@ -266,7 +263,6 @@ output:
 
       # Configure curve types for ECDHE based cipher suites
       #curve_types: []
-    <% end %>
 
 
   ### File as output
