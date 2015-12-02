@@ -1,5 +1,5 @@
-default['formatron_filebeat']['version'] = '1.0.0-rc2'
-default['formatron_filebeat']['checksum'] = 'e16484492ac5b77c2c98ae5d4ba98e45ce3ce6f84ec05ae364680fd0f573f794'
-default['formatron_filebeat']['logstash']['hostname'] = nil
-default['formatron_filebeat']['logstash']['port'] = nil
-default['formatron_filebeat']['paths'] = []
+default['formatron_filebeat']['version'] = nil
+
+default['formatron_filebeat']['logstash']['host'] = 'localhost'
+default['formatron_filebeat']['logstash']['port'] = 5044
+default['formatron_filebeat']['paths'] = ['/var/log/**/*.log']
