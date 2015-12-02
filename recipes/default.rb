@@ -1,7 +1,7 @@
 version = node['formatron_filebeat']['version']
 
 paths = node['formatron_filebeat']['paths']
-hostname = node['formatron_filebeat']['logstash']['hostname']
+host = node['formatron_filebeat']['logstash']['host']
 port = node['formatron_filebeat']['logstash']['port']
 
 include_recipe 'formatron_beats::default'
@@ -12,8 +12,8 @@ end
 
 template '/etc/filebeat/filebeat.yml' do
   variables(
-    paths: paths || [],
-    hostname: hostname,
+    paths: paths,
+    host: host,
     port: port
   )
   notifies :restart, 'service[filebeat]', :delayed
