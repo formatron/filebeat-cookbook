@@ -4,8 +4,9 @@ default['formatron_filebeat']['enabled'] = true
 
 default['formatron_filebeat']['logstash']['host'] = 'localhost'
 default['formatron_filebeat']['logstash']['port'] = 5044
-default['formatron_filebeat']['paths'] = [
-  '/var/log/*.log',
-  '/var/log/*/*.log',
-  '/var/log/*/*/*.log'
-]
+default['formatron_filebeat']['prospectors'] = [{
+  paths: [
+    '/var/log/syslog'
+  ],
+  document_type: 'syslog'
+}]

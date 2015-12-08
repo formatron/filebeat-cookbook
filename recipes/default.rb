@@ -2,7 +2,7 @@ version = node['formatron_filebeat']['version']
 
 enabled = node['formatron_filebeat']['enabled']
 
-paths = node['formatron_filebeat']['paths']
+prospectors = node['formatron_filebeat']['prospectors']
 host = node['formatron_filebeat']['logstash']['host']
 port = node['formatron_filebeat']['logstash']['port']
 
@@ -14,7 +14,7 @@ end
 
 template '/etc/filebeat/filebeat.yml' do
   variables(
-    paths: paths,
+    prospectors: prospectors,
     host: host,
     port: port
   )
