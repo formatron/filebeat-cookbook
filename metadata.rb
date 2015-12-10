@@ -1,4 +1,7 @@
 name 'formatron_filebeat'
 version '0.1.0'
+description 'Formatron Filebeat cookbook'
+source_url 'https://github.com/formatron/filebeat-cookbook'
+issues_url 'https://github.com/formatron/filebeat-cookbook/issues'
 supports 'ubuntu'
 depends 'formatron_beats'
