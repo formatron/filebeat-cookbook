@@ -1,5 +1,5 @@
 name 'formatron_filebeat'
-version '0.1.1'
+version '0.1.2'
 description 'Formatron Filebeat cookbook'
 maintainer 'Peter Halliday'
 maintainer_email 'pghalliday@gmail.com'

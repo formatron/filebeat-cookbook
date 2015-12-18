@@ -4,14 +4,6 @@
 filebeat:
   # List of prospectors to fetch data.
   prospectors:
-<% @prospectors.each do |prospector| %>
-    -
-      paths:
-<% prospector[:paths].each do |path| %>        - <%= path %>
-<% end %>
-      document_type: <%= prospector[:document_type] %>
-<% end %>
-
     # Each - is a prospector. Below are the prospector specific configurations
     #-
       # Paths that should be crawled and fetched. Glob based paths.
@@ -117,10 +109,13 @@ filebeat:
     #  fields:
     #    type: apache
     #    server: localhost
-    #-
-    #  type: stdin
-    #  paths:
-    #    - "-"
+
+    # enable stdin so filebeat can start with no other paths
+    # (hack! so I can use the prospector LWRP)
+    -
+      type: stdin
+      paths:
+        - "-"
 
   # General filebeat configuration options
   #
@@ -140,7 +135,7 @@ filebeat:
   # These config files must have the full filebeat config part inside, but only
   # the prospector part is processed. All global options like spool_size are ignored.
   # The config_dir MUST point to a different directory then where the main filebeat config file is in.
-  #config_dir:
+  config_dir: <%= @config_dir %>
 
 
 ###############################################################################
